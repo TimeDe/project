@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        ul{padding: 0;margin: 0;}
+        li{list-style: none;}
+        #pic{width: 400px;height: 500px;position: relative;margin: 0 auto;}
+        #pic img{width: 500px;height: 500px;}
+        #pic ul{position: absolute;}
+        #pic li{width: 50px;height: 50px;float: left;margin-right: 5px;border: 1px solid #000;}
+        #pic .active{border: 3px solid red;}
+        #pic li img{width: 50px;height: 50px;}
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('pic');
+            var aImg = oDiv.getElementsByTagName('img');
+            var aUl = oDiv.getElementsByTagName('ul')[0];
+            var aLi = oDiv.getElementsByTagName('li');
+            var arr1 = ['url("img/1.png")','url("img/2.png")','url("img/3.png")','url("img/4.png")'];
+            var arr = ['img/pic1.png','img/pic2.png','img/pic3.png','img/pic4.png'];
+            var len = arr.length;
+            var num = 0;
+            var oldLi = null;
+
+            for(var i=0;i<len;i++){
+                aUl.innerHTML += '<li></li>';
+                aLi[num].className = 'active';
+                aLi[i].style.background = arr1[i];
+            }
+
+            for(var i=0;i<len;i++){
+                oldLi = aLi[num];
+                aLi[i].index = i;
+                aLi[i].onclick = function () {
+                    aImg[0].src = arr[this.index];
+
+                    /*
+                     //思路一:清除全部的active，当前添加active     此方法在操作元素过多时会影响性能
+                     for(var j=0;j<len;j++){
+                     aLi[j].className = '';
+                     }
+                     this.className = 'active';
+                     */
+
+
+                    //思路二:清空前一个的active，给当前添加active
+                    oldLi.className = '';
+                    this.className = 'active';
+                    oldLi = this;
+                };
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="pic">
+        <img src="img/pic1.png" />
+        <ul>
+        </ul>
+    </div>
+</body>
+</html>
