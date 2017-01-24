@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22d93aec-8aa8-421a-bc75-5e2e7c527746" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/控制多组图片切换/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/100du商城/index.html" afterPath="$PROJECT_DIR$/100du商城/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/100du商城/js/100du.js" afterPath="$PROJECT_DIR$/100du商城/js/100du.js" />
     </list>
     <ignored path="project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,31 +29,18 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/图片切换/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1802">
-              <caret line="97" column="29" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
+            <state relative-caret-position="988">
+              <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/100du商城/index.html">
+        <entry file="file://$PROJECT_DIR$/控制多组图片切换/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="43" />
-              <folding>
-                <marker date="1485241921527" expanded="true" signature="8495:8563" ph="..." />
-                <marker date="1485241921527" expanded="true" signature="8745:8791" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="100du.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/100du商城/js/100du.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="203">
+              <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -89,6 +75,7 @@
         <option value="$PROJECT_DIR$/图片切换/index.html" />
         <option value="$PROJECT_DIR$/100du商城/js/100du.js" />
         <option value="$PROJECT_DIR$/100du商城/index.html" />
+        <option value="$PROJECT_DIR$/控制多组图片切换/index.html" />
       </list>
     </option>
   </component>
@@ -158,7 +145,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="100du商城" />
+              <option name="myItemId" value="控制多组图片切换" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -172,11 +159,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="100du商城" />
+              <option name="myItemId" value="控制多组图片切换" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -203,12 +190,12 @@
       <option name="presentableId" value="Default" />
       <updated>1485165463606</updated>
       <workItem from="1485165472608" duration="16671000" />
-      <workItem from="1485231948024" duration="5272000" />
+      <workItem from="1485231948024" duration="12558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21943000" />
+    <option name="totallyTimeSpent" value="29229000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -272,14 +259,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/图片切换/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="97" column="29" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/100du商城/js/100du.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -290,12 +269,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/100du商城/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="43" />
+        <state relative-caret-position="-2626">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding>
             <marker date="1485241921527" expanded="true" signature="8495:8563" ph="..." />
             <marker date="1485241921527" expanded="true" signature="8745:8791" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/图片切换/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/控制多组图片切换/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>

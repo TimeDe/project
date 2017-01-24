@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制多组图片切换</title>
+    <style>
+        ul,li,div,input{margin: 0;padding: 0;list-style: none;}
+        input{border: none;}
+        body{background: url("img/bg.jpeg");width: 100%;height: 100%;}
+        #content{width: 1000px;height: 300px;margin: 0 auto;position: relative;top: 280px;}
+        #img1,#img2{width: 480px;height: 300px;float: left;}
+        input{width: 100px;height: 30px;background: #009696;position: absolute;top: -40px;}
+        #pre{left: 100px;}
+        #next{left: 220px;}
+        div{width: 480px;height: 20px;position: absolute;bottom: 10px;line-height: 20px;text-align: center;color: #555;}
+    </style>
+    <script>
+        window.onload = function () {
+            var oImg1 = document.getElementById('img1');
+            var oImg2 = document.getElementById('img2');
+            var aImg1 = oImg1.getElementsByTagName('img')[0];
+            var aImg2 = oImg2.getElementsByTagName('img')[0];
+            var aDiv1 = oImg1.getElementsByTagName('div')[0];
+            var aDiv2 = oImg2.getElementsByTagName('div')[0];
+            var oPre = document.getElementById('pre');
+            var oNext = document.getElementById('next');
+            var arr1 = ['img/1.jpg','img/2.jpg','img/3.jpeg','img/4.jpeg'];
+            var arr2 = ['img/5.jpg','img/6.jpg','img/7.jpg'];
+            var num1 = 0;
+            var num2 = 0;
+            var len1 = arr1.length;
+            var len2 = arr2.length;
+
+            function fn(flag) {
+                if(flag){
+                    if(num1 == len1){
+                        num1 = 0;
+                    }
+                    if(num2 == len2){
+                        num2 = 0;
+                    }
+                }else {
+                    if(num1 == -1){
+                        num1 = len1-1;
+                    }
+                    if(num2 == -1){
+                        num2 = len2-1;
+                    }
+                }
+
+                aDiv1.innerHTML = (num1+1) + ' / ' + len1;
+                aDiv2.innerHTML = (num2+1) + ' / ' + len2;
+                aImg1.src = arr1[num1];
+                aImg2.src = arr2[num2];
+            }
+
+            fn(true);
+
+            oImg1.onclick = function () {
+                num1++;
+                fn(true);
+            };
+            oImg2.onclick = function () {
+                num2++;
+                fn(true);
+            };
+            oNext.onclick = function () {
+                num1++;
+                num2++;
+                fn(true);
+            };
+            oPre.onclick = function () {
+                num1--;
+                num2--;
+                fn(false);
+            };
+        };
+    </script>
+</head>
+<body>
+<ul id="content">
+    <li id="img1">
+        <img src="img/1.jpg" />
+        <div></div>
+    </li>
+    <li id="img2">
+        <img src="img/3.jpeg" />
+        <div></div>
+    </li>
+    <input id="pre" type="button" value="上一组" />
+    <input id="next" type="button" value="下一组" />
+</ul>
+</body>
+</html>
