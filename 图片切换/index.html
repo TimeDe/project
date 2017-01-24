@@ -3,8 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <title>图片切换</title>
+    <style>
+       *{margin: 0;padding: 0;}
+       body{background: #000000;}
+        ul,li{list-style: none;}
+        .content{width: 1000px;height: 660px;margin: 0 auto;position: relative;}
+        #img{width: 1000px;height: 660px;}
+        #pre,#next{width: 100px;height: 100px;position: absolute;top: 330px;opacity: 0.5;}
+        #pre{left: -110px;}
+        #next{right: -110px;}
+        #tab{height: 30px;position: relative;left: 0;top: -60px;}
+        #tab li{width: 30px;height: 30px;position: absolute;opacity: 0.5}
+        #tab .active{opacity: 1;}
+        #tab img{width: 30px;height: 30px;}
+        #tab div img,#tab div{width: 160px;height: 100px;}
+        #tab div{position: absolute;top: -110px;left: -60px;border: 5px solid red;display: none;}
+    </style>
+    <script>
+        window.onload = function () {
+            var oImg = document.getElementById('img');
+            var oPre = document.getElementById('pre');
+            var oNext = document.getElementById('next');
+            var oTab = document.getElementById('tab');
+            var aLi = oTab.getElementsByTagName('li');
+            var aDiv = oTab.getElementsByTagName('div');
+            var arr =['img/1.jpg','img/2.jpg','img/3.jpeg','img/4.jpeg','img/5.jpg','img/6.jpg','img/7.jpg'];
+            var len = arr.length;
+            var attr = '';
+            var oldLi = null;
+            var num = 0;
+
+            for(var i=0;i<len;i++){
+                attr += '<li><img src="img/8.jpg" />' + '<div><img src="' + arr[i] + '" /></div></li>'
+            }
+            oTab.innerHTML += attr;
+            for(var i=0;i<len;i++){
+                aLi[i].style.left = 420 + 40*i+'px';
+                oldLi = aLi[0];
+                oldLi.className = 'active';
+            }
+
+            for(var i=0;i<len;i++){
+                aLi[i].index = i;
+                aLi[i].onmouseover = function () {
+                    //console.log(this.index)
+                    aDiv[this.index].style.display = 'block';
+                    if(this.index != num){
+                        aLi[this.index].className = 'active';
+                    }
+                };
+                aLi[i].onmouseout = function () {
+                    //console.log(this.index)
+                    aDiv[this.index].style.display = 'none';
+                    if(this.index != num){
+                        aLi[this.index].className = '';
+                    }
+                };
+                aLi[i].onclick = function () {
+                    oImg.src = arr[this.index];
+                    num = this.index;
+                    oldLi.className = '';
+                    this.className = 'active';
+                    oldLi = aLi[num];
+                };
+                function fnChange() {
+                        this.style.opacity = 1;
+                }
+                function fnChangeOver() {
+                    this.style.opacity = 0.5;
+                }
+                oNext.onmouseover = fnChange;
+                oNext.onmouseout = fnChangeOver;
+                oPre.onmouseover = fnChange;
+                oPre.onmouseout =fnChangeOver;
+
+                function fnMove() {
+                    oldLi.className = '';
+                    aLi[num].className = 'active';
+                    oldLi = aLi[num];
+                    oImg.src = arr[num];
+                }
+                oNext.onclick = function () {
+                    num ++;
+                    if(num == 7){
+                        num = 0;
+                    }
+                    fnMove();
+                };
+                oPre.onclick = function () {
+                    num --;
+                    if(num == -1){
+                        num = 6;
+                    }
+                    fnMove();
+                };
+            }
+        };
+    </script>
 </head>
 <body>
+<div class="content">
+    <img id="img" src="img/1.jpg" />
 
+    <img id="pre" src="img/8.jpg" />
+    <img id="next" src="img/8.jpg" />
+
+    <ul id="tab">
+    </ul>
+</div>
 </body>
 </html>
