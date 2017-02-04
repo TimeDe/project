@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度文库评分</title>
+    <style>
+        div{width: 666px;height: 77px;}
+        span{margin: 0;padding: 0;width: 150px;height: 77px;display: block;float: right;line-height: 77px;text-align: center;font-size: 20px;}
+    </style>
+    <script>
+        window.onload = function () {
+            var aImg = document.getElementsByTagName('img');
+            var oSpan = document.getElementsByTagName('span')[0];
+            var arr = ['img/1.gif','img/2.jpeg','img/3.jpg'];
+            var len = aImg.length;
+            var num = 0;
+            var num1 = 0;
+            var flag = true;
+            var attr = oSpan.innerHTML;
+
+            for(var i=0;i<len;i++){
+                aImg[i].index = i;
+                fn(aImg[i]);
+                //console.log(i);
+            }
+
+            function fn(oImg) {
+                oImg.onclick = function () {
+                    if(flag){
+                        flag = false;
+                        num1 = this.index;
+                    }
+                    oSpan.innerHTML = '您的评分为: ' + (num1+1) + '分';
+                };
+                oImg.onmouseover =function () {
+                    oSpan.innerHTML = '';
+                    num = this.index;
+                    if(flag){
+                        if(num>1){
+                            for(var i=0;i<=num;i++){
+                                aImg[i].src = arr[0];
+                            }
+                        }else{
+                            for(var i=0;i<=num;i++){
+                                aImg[i].src = arr[2];
+                            }
+                        }
+                    }else{
+                        for(var i=num+1;i<len;i++){
+                            aImg[i].src = arr[1];
+                        }
+                        if(num>1){
+                            for(var i=0;i<=num;i++){
+                                aImg[i].src = arr[0];
+                            }
+                        }else{
+                            for(var i=0;i<=num;i++){
+                                aImg[i].src = arr[2];
+                            }
+                        }
+                    }
+                    /*for(var i=( num + 1 );i<len;i++){
+                        aImg[i].src = arr[1];
+                    }*/
+                };
+                oImg.onmouseout = function () {
+                    if(flag){
+                        oSpan.innerHTML = attr;
+                        for(var i=0;i<=num;i++){
+                            aImg[i].src = arr[1];
+                        }
+                    }else{
+                        oSpan.innerHTML = '您的评分为: ' + (num1+1) + '分';
+                        if(num1<=1){
+                            for(var i=0;i<=num1;i++){
+                                aImg[i].src = arr[2];
+                            }
+                        }else{
+                            for(var i=0;i<=num1;i++){
+                                aImg[i].src = arr[0];
+                            }
+                        }
+                        for(var i=( num1 + 1 );i<len;i++){
+                            aImg[i].src = arr[1];
+                        }
+                    }
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+<div>
+    <img src="img/2.jpeg" />
+    <img src="img/2.jpeg" />
+    <img src="img/2.jpeg" />
+    <img src="img/2.jpeg" />
+    <img src="img/2.jpeg" />
+    <span>请为我们评分</span>
+</div>
+</body>
+</html>
