@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>图片切换</title>
     <style>
-       *{margin: 0;padding: 0;}
-       body{background: #000000;}
+        *{margin: 0;padding: 0;}
+        body{background: #000000;}
         ul,li{list-style: none;}
         .content{width: 1000px;height: 660px;margin: 0 auto;position: relative;}
         #img{width: 1000px;height: 660px;}
@@ -32,6 +32,9 @@
             var attr = '';
             var oldLi = null;
             var num = 0;
+            var flag = 0;
+
+            var timer = null;
 
             for(var i=0;i<len;i++){
                 attr += '<li><img src="img/8.jpg" />' + '<div><img src="' + arr[i] + '" /></div></li>'
@@ -47,6 +50,7 @@
                 aLi[i].index = i;
                 aLi[i].onmouseover = function () {
                     //console.log(this.index)
+                    clearInterval(timer);
                     aDiv[this.index].style.display = 'block';
                     if(this.index != num){
                         aLi[this.index].className = 'active';
@@ -67,10 +71,12 @@
                     oldLi = aLi[num];
                 };
                 function fnChange() {
-                        this.style.opacity = 1;
+                    this.style.opacity = 1;
+                    clearInterval(timer);
                 }
                 function fnChangeOver() {
                     this.style.opacity = 0.5;
+                    autoPlay();
                 }
                 oNext.onmouseover = fnChange;
                 oNext.onmouseout = fnChangeOver;
@@ -83,6 +89,7 @@
                     oldLi = aLi[num];
                     oImg.src = arr[num];
                 }
+
                 oNext.onclick = function () {
                     num ++;
                     if(num == 7){
@@ -98,6 +105,34 @@
                     fnMove();
                 };
             }
+
+            function autoPlay() {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    if(flag%2 == 0){
+                        num++;
+                        if(num == 6){
+                            flag++;
+                        }
+                    }else{
+                        num--;
+                        if(num == 0){
+                            flag++;
+                        }
+                    }
+                    fnMove();
+                    //console.log(num);
+                },1000);
+            }
+
+            autoPlay();
+            oImg.onmouseover = function () {
+                clearInterval(timer);
+
+            };
+            oImg.onmouseout = function () {
+                autoPlay();
+            };
         };
     </script>
 </head>
